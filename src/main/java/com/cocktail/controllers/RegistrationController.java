@@ -43,23 +43,4 @@ public class RegistrationController {
         }
         return "login";
     }
-
-
-//    @GetMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
-//    @PostMapping("/login")
-//    public String authorization(@RequestParam String username, @RequestParam String password, Model model){
-//        if (username.isEmpty() || password.isEmpty()){
-//            model.addAttribute("result", "input is empty");
-//            return "login";
-//        }
-//        User userFromDB = userService.findByUsernameAndPassword(password, username);
-//        if (userFromDB == null){
-//            model.addAttribute("result", "User not exist!");
-//            return "redirect:/login";
-//        }
-//        return "generalPage";
-//    }
 }
