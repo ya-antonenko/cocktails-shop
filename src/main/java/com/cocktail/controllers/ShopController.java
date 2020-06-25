@@ -9,10 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +34,7 @@ public class ShopController {
         model.addAttribute("drinks", drinkList);
         return "viewShop";
     }
+
     @GetMapping("/basket")
     public String showBasket(Model model){
         Usr currentUsr = identifyUser();
@@ -90,7 +88,7 @@ public class ShopController {
         return showBasket(model);
     }
 
-    @PostMapping("/deletedrinkonbasket")
+    @DeleteMapping("/deletedrinkonbasket")
     public String deleteDrinkOnBusket(@RequestParam("drink") String nameDrinkEng, Model model){
         Usr currentUsr = identifyUser();
         drinkService.deleteDrinkOnUsr(currentUsr, drinkService.findDrinkToBasket(nameDrinkEng));

@@ -28,8 +28,6 @@ public class CocktailController {
             return "redirect:/generalpage?notfound";
         }
         for (int i=0; i<cocktails.size(); i++){
-//            String serialNumberOfTheCocktail = Integer.toString(i);
-//            cocktails.get(i).setIngredientsEng(serialNumberOfTheCocktail);
             cocktails.get(i).setQuantity(i);
         }
         model.addAttribute("cocktails", cocktails);
