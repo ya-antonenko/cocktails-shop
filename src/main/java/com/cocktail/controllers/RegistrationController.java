@@ -33,6 +33,7 @@ public class RegistrationController {
         return "redirect:/login";
     }
 
+    /*
     @GetMapping("/activate/{code}")
     public String activate(@PathVariable String code, Model model){
         boolean isActivated = userService.activatedUsr(code);
@@ -43,4 +44,5 @@ public class RegistrationController {
         }
         return "login";
     }
+     */
 }

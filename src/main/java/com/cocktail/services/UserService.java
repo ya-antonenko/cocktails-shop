@@ -18,8 +18,8 @@ public class UserService {
     private UsrRepo usrRepo;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private MailSender mailSender;
+//    @Autowired
+//    private MailSender mailSender;
 
     @Transactional(readOnly = true)
     public Usr findByUsername(String username){
@@ -38,11 +38,15 @@ public class UserService {
         Usr usr = new Usr();
         usr.setEmail(email);
         usr.setUsername(username);
-        usr.setActive(false);
+        usr.setActive(true);
         usr.setRoles(Roles.USER);
         usr.setPassword(passwordEncoder.encode(password));
+
         usr.setActivationCode(UUID.randomUUID().toString());
+
         usrRepo.save(usr);
+
+        /*
         String massage = String.format(
                 "Hello, %s! \n" +
                         "Welcome to our site. Please, visit next link: " +
@@ -51,10 +55,12 @@ public class UserService {
         );
 
         mailSender.send(email, "Activation code", massage);
+         */
 
         return true;
     }
 
+    /*
     @Transactional
     public boolean activatedUsr(String code) {
         Usr usr = usrRepo.findByActivationCode(code);
@@ -64,6 +70,7 @@ public class UserService {
         usrRepo.save(usr);
         return true;
     }
+     */
 
     @Transactional
     public boolean deleteListBasket(String username){

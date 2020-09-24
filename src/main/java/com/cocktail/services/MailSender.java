@@ -6,8 +6,9 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class MailSender {
+    /*
     @Autowired
     private JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
@@ -23,4 +24,5 @@ public class MailSender {
 
         javaMailSender.send(simpleMailMessage);
     }
+     */
 }
